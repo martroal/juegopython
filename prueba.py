@@ -3,7 +3,7 @@ import sys
 from time import sleep
 
 #diccionario para poder llevar cuenta de reputacion, que se suma mediante cada eleccion
-dic={"reputacion": "",}
+dic={"reputacion": 0,}
 
 
 #FUNCION DE EFECTO TYPE WRITER MACHINE... veremos 
@@ -43,7 +43,7 @@ def primer_pregunta():
                 
 #upsala - noruega
 def noruega():
-        dic["reputacion"] =+ 1
+        dic["reputacion"] += 1
         descrip = ("Has elegido ir a Noruega, el Rey de Noruega comparte tus ideas, le emociona tu discurso y te otorga 100 barcos para que te acompanen. Durante el viaje, estan perdidos en el mar, debes elegir entre ir al norte o al sur")
         for char in descrip: 
                 sleep(0.01)
@@ -51,11 +51,11 @@ def noruega():
         print(" ")
         respuesta = input("    Eleccion: (Norte / Sur)").lower().strip()
         if respuesta == "norte":
-                dic["reputacion"] =+ 4
+                dic["reputacion"] += 4
                 print("    Te ha ido muy bien conseguiste 1000kg de oro y tu reputacion va creciendo")
                 francia_inglaterra()
         elif respuesta == "sur":
-                dic["reputacion"] =+ 2
+                dic["reputacion"] += 2
                 print("    Te ha ido regular tienes 500kg de oro, bueh, todo suma, no?")
                 francia_inglaterra()
         else: 
@@ -72,11 +72,11 @@ def suecia():
         print(" ")
         respuesta = input("    Eliges: (norte / sur)").lower().strip()
         if respuesta == "norte":
-                dic["reputacion"] =+ 2
+                dic["reputacion"] += 2
                 print("    Te ha ido regular tienes 500kg de oro")
                 francia_inglaterra()
         elif respuesta == "sur":
-                dic["reputacion"] =-10
+                dic["reputacion"] -= 10
                 print("    Ha sido un desastre, regresaste con las manos vacias")
                 pelea_o_regresa()
 
@@ -92,11 +92,11 @@ def pelea_o_regresa():
                 print(char, end='', flush=True) 
         respuesta = input("Eliges (Pelear / Regresar)").lower().strip()
         if respuesta == "pelear":
-                dic["reputacion"] =+ 4
+                dic["reputacion"] += 4
                 print("    Le ganaste a ese viejo demente, tu reputacion ha subido")
                 francia_inglaterra()
         elif respuesta == "regresar":
-                dic["reputacion"] =- 3
+                #dic["reputacion" -= 3
                 print("    Esta vez no pudo ser. Odin confia en que lo intentes de nuevo")
                 primer_pregunta() 
         else: 
@@ -121,7 +121,7 @@ def francia_inglaterra():
 
 #upsala nor/sue MON francia
 def en_francia():
-        dic["reputacion"] =+ 3
+        dic["reputacion"] += 3
         print(" ")
         descrip=("    Historia, aqui van los pros y contras de regresar o asentamiento")
         for char in descrip: 
@@ -140,7 +140,7 @@ def en_francia():
 
 #upsala nor/sue MON inglaterra
 def en_inglaterra():
-        dic["reputacion"] =+ 3
+        dic["reputacion"] += 3
         print(" ")
         descrip=("    Historia, aqui van los pros y contras de aliados o asesinar")
         for char in descrip: 
@@ -158,7 +158,7 @@ def en_inglaterra():
 
 #upsala nor/sue MON inglaterra aliarseEg --- esto lleva a escandinavia o asentamiento en francia
 def aliado_egberto():
-        dic["reputacion"] =+ 1
+        dic["reputacion"] += 1
         print(" ")
         descrip=("    hisotoria de lo sucedido mientras aliado de egberto")
         for char in descrip: 
@@ -176,7 +176,7 @@ def aliado_egberto():
 
 #upsala nor/sue MON inglaterra asesinarEg
 def asesinar_egberto():
-        dic["reputacion"] =+ 2
+        dic["reputacion"] += 2
         print(" ")
         descrip=("    Has matado al Rey Egberto, esta tierra Wessex que sin monarca")
         for char in descrip: 
@@ -194,7 +194,7 @@ def asesinar_egberto():
 
 #upsala nor/sue MON inglaterra asesinarEg intentarreydewessex
 def wessex():
-        dic["reputacion"] =+ 3
+        dic["reputacion"] += 3
         print(" ")
         print("    No sabias lo que el odio por un extranjero puede llegar a hacer")
         print("    Debes aceptar tu destino, te han derrotado, tus ambiciones te han llevado a la muerte ")
@@ -202,7 +202,7 @@ def wessex():
 
 #upsala nor/sue MON inglaterra asesinarEg iraNortumbria ---- esto lleva a reyInglaterra o reyVikingo
 def northumbria():
-        dic["reputacion"] =+ 2
+        dic["reputacion"] += 2
         print(" ")
         descrip=("    conquistaste tambien northumbria ")
         for char in descrip: 
@@ -220,7 +220,7 @@ def northumbria():
 
 #upsala nor/sue MON francia escandinavia
 def escandinavia():
-        dic["reputacion"] =+ 3
+        dic["reputacion"] += 3
         print(" ")
         descrip=("    Historia, aqui van los pros y contras de pelear por kategat o ser rey")
         for char in descrip: 
@@ -238,7 +238,7 @@ def escandinavia():
 
 #upsala nor/sue MON francia asentamiento
 def asentamiento():
-        dic["reputacion"] =+ 2
+        dic["reputacion"] += 2
         print(" ")
         descrip=("    Historia, aqui van los pros y contras de asesinar a todos o negociar")
         for char in descrip: 
@@ -256,7 +256,7 @@ def asentamiento():
 
 #upsala nor/sue MON francia asentamiento negociar
 def negociar():
-        dic["reputacion"] =+ 1
+        dic["reputacion"] += 1
         print(" ")
         descrip=("    los francos son unos personajes traicioneros")
         for char in descrip: 
@@ -274,7 +274,7 @@ def negociar():
 
 #upsala nor/sue MON francia asentamiento negociar/asesinar gobernar
 def gobernar():
-        dic["reputacion"] =- 10
+        dic["reputacion"] += 10
         print(" ")
         print("    intentas pero los francos te asesinan por la espalda")
         print("    nunca debiste haber confiado en ellos, debiste assinarlos a todos")
@@ -282,7 +282,7 @@ def gobernar():
 
 #upsala nor/sue MON francia asentamiento asesinar
 def asesinar():
-        dic["reputacion"] =+ 3
+        dic["reputacion"] += 3
         print(" ")
         descrip=("   Matas a cualquier frances que se cruce por tu camino los dioses conspiran a tu favor, la sangre les llama prefieres gobernar estas tierras o regresar a la tuya").lower().strip()
         for char in descrip: 
@@ -299,7 +299,7 @@ def asesinar():
 
 ##upsala nor/sue MON francia escandinavia kategat
 def kategat():
-        dic["reputacion"] =+ 3
+        dic["reputacion"] += 3
         print(" ")
         descrip=("    Estas en kategat y su lider te insulta y te reta a un duelo... ves fragil a su lider pero te informan que ha muerto el rey de Wessex en Inglaterra")
         for char in descrip: 
@@ -317,7 +317,7 @@ def kategat():
 
 
 def muerte_digna(): 
-        dic["reputacion"] =+ 3
+        dic["reputacion"] += 3
         print(" ")
         descrip = ("    has muerto dignamente, Odin y todos los dioses te reciben el Valhala y bla bla bla bla bla bla ")
         for char in descrip:
@@ -326,7 +326,7 @@ def muerte_digna():
         endgame()
 
 def rey_inglaterra(): 
-        dic["reputacion"] =+ 5
+        dic["reputacion"] += 5
         print(" ")
         descrip = ("Has elegido gobernar un pueblo que no era el tuyo pasaras tus ultimos dias odiandote por no haber regresado a casa... igualmente... enhorabuena, por lo menos eres rey de algun lado")
         for char in descrip:
@@ -335,7 +335,7 @@ def rey_inglaterra():
         endgame()
 
 def rey_vikingo():
-        dic["reputacion"] =+ 10
+        dic["reputacion"] += 10
         print(" ")
         descrip = ("    Vas por la gloria, te quieres saltar varios pasos... y eso esta bien, en tu ADN vikingo esta programado para que seas asi,")
         for char in descrip:
@@ -348,7 +348,7 @@ def rey_vikingo():
                 error()
 
 def leyenda_vikinga(): 
-        dic["reputacion"] =+ 5
+        dic["reputacion"] += 5
         print(" ")
         descrip = ("    Te convertiste en rey de toda escandinavia. Y atacaste lejanas tierras eres y seras el Vikingo mas grandes que ha existido.")
         for char in descrip:
@@ -357,7 +357,7 @@ def leyenda_vikinga():
         endgame()
 
 def muerte_indigna():
-        dic["reputacion"] =+ 0
+        dic["reputacion"] += 1 
         print(" ")
         descrip = ("  Eres una desgracias para tu pueblo, iras al cielo cristiano a sufir por toda la eternidad")
         for char in descrip:
@@ -388,7 +388,7 @@ print(" ")
 apellido = input("    Cual es tu apellido? " ).capitalize()
 print(" ")
 nombre=("Ragnar "+ apellido)
-print("Bienvennido "+nombre)
+print("    Bienvennido "+nombre)
 print(" ")
 
 #inicializa el juego (entra en el loop if/else)
@@ -398,5 +398,5 @@ if respuesta == "si":
 else: 
         error()
 
-#imprime reputacion/puntuacion
+#imprime reputacion conseguida
 print(dic)
